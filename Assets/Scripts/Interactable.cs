@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public enum InteractionType
 {
     Test,
-    Button
+    Button,
+    Screen
 }
 
 public class Interactable : MonoBehaviour
@@ -19,7 +20,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private float pressSpeed = 10f;
     [SerializeField] private float pressTime = 0.15f;
 
-    // What the button triggers, wired in the inspector (e.g. ColorScreen.SubmitAnswer)
+    // What the button or screen triggers, wired in the inspector (e.g. ColorScreen.SubmitAnswer, CaptchaScreen.StartTyping)
     public UnityEvent onPressed;
 
     private Vector3 originalPosition;
@@ -43,12 +44,15 @@ public class Interactable : MonoBehaviour
             case InteractionType.Button:
                 ButtonAction();
                 break;
+
+            case InteractionType.Screen:
+                onPressed.Invoke();
+                break;
         }
     }
 
     public void ButtonAction()
     {
-        Debug.Log("Button pressed " + name);
         targetPosition = originalPosition + new Vector3(0, -pressDepth, 0);
 
         CancelInvoke(nameof(ReleaseButton));
