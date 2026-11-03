@@ -2399,6 +2399,8 @@ GameObject:
   - component: {fileID: 4783086268078992346}
   - component: {fileID: 4783086268079992090}
   - component: {fileID: 65085147120524382}
+  - component: {fileID: 4783086268077998100}
+  - component: {fileID: 4783086268077998101}
   m_Layer: 0
   m_Name: piano
   m_TagString: Untagged
@@ -2532,6 +2534,55 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.489772, y: 1.3219107, z: 0.5685897}
   m_Center: {x: 0.0000011324883, y: 0.6609555, z: 0.000000014901161}
+--- !u!114 &4783086268077998100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4783086268077998020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc56634a5526544c94fdd72b12139c1, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  type: 2
+  pressDepth: 0.0045
+  pressSpeed: 10
+  pressTime: 0.15
+  onPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4783086268077998101}
+        m_TargetAssemblyTypeName: Piano, Assembly-CSharp
+        m_MethodName: PlayAimedKey
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument:
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4783086268077998101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4783086268077998020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d2e2b62a8dcf1261fcdf93793f6f4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  keyPrefix: props_148key
+  pressDepth: 0.005
+  pressSpeed: 20
+  pressTime: 0.15
+  noteDuration: 1.5
+  volume: 0.5
 --- !u!1 &4783086268077998022
 GameObject:
   m_ObjectHideFlags: 0
