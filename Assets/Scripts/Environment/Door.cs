@@ -2,7 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// A door that sends the player to another scene.
-/// Can be triggered by clicking it (via DoorClicker) and/or by walking into it.
+/// Can be triggered by clicking it (via PlayerInteraction) and/or by walking into it.
 /// </summary>
 public class Door : MonoBehaviour
 {
@@ -30,7 +30,7 @@ public class Door : MonoBehaviour
 
     private bool isLoading; // guards against double-activation
 
-    /// <summary>Called by DoorClicker when the player clicks this door.</summary>
+    /// <summary>Called by PlayerInteraction when the player clicks this door.</summary>
     public void Interact()
     {
         if (isLoading) return;

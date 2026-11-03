@@ -41,7 +41,7 @@ public class CaptchaScreen : MonoBehaviour
     [SerializeField] private int maxInputLength = 12;
     public UnityEvent onCompleted;
 
-    private Player player;
+    private PlayerController player;
     private PlayerInteraction playerInteraction;
 
     private bool isTyping;
@@ -57,7 +57,7 @@ public class CaptchaScreen : MonoBehaviour
 
     void Start()
     {
-        player = FindObjectOfType<Player>();
+        player = FindObjectOfType<PlayerController>();
         playerInteraction = FindObjectOfType<PlayerInteraction>();
 
         UpdateProgress();
@@ -90,15 +90,19 @@ public class CaptchaScreen : MonoBehaviour
         player.enabled = enabled;
         playerInteraction.enabled = enabled;
 
-        if (!enabled)
-        {
-            Rigidbody rb = player.GetComponent<Rigidbody>();
-            rb.velocity = new Vector3(0, rb.velocity.y, 0);
-        }
-        else
+        if (enabled)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+    }
+
+    void LateUpdate()
+    {
+        // In LateUpdate so PlayerController, re-enabled here, doesn't also read this Escape and unlock the cursor
+        if (isTyping && Input.GetKeyDown(KeyCode.Escape))
+        {
+            StopTyping();
         }
     }
 
@@ -106,12 +110,6 @@ public class CaptchaScreen : MonoBehaviour
     {
         if (!isTyping || Time.frameCount == typingStartFrame)
         {
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            StopTyping();
             return;
         }
 
@@ -278,7 +276,7 @@ public class CaptchaScreen : MonoBehaviour
         }
         else
         {
-            inputText.text = "Press F to type";
+            inputText.text = "Click to type";
         }
     }
 

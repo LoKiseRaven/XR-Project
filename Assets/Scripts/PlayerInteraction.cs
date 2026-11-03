@@ -6,14 +6,22 @@ public class PlayerInteraction : MonoBehaviour
 {
     public float playerReach = 3f;
     Interactable currentInteractable;
+    Door currentDoor;
 
     // Update is called once per frame
     void Update()
     {
         CheckInteraction();
-        if (Input.GetKeyDown(KeyCode.F) && currentInteractable != null)
+        if (Input.GetMouseButtonDown(0))
         {
-            currentInteractable.Interact();
+            if (currentInteractable != null)
+            {
+                currentInteractable.Interact();
+            }
+            else if (currentDoor != null)
+            {
+                currentDoor.Interact();
+            }
         }
     }
 
@@ -22,7 +30,12 @@ public class PlayerInteraction : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 
-        if (Physics.Raycast(ray, out hit, playerReach)
+        bool hasHit = Physics.Raycast(ray, out hit, playerReach);
+
+        // The Door script can sit on a parent of the collider that was hit
+        currentDoor = hasHit ? hit.collider.GetComponentInParent<Door>() : null;
+
+        if (hasHit
             && hit.collider.TryGetComponent(out Interactable newInteractable)
             && newInteractable.enabled)
         {
