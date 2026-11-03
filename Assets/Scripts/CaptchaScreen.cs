@@ -156,7 +156,7 @@ public class CaptchaScreen : MonoBehaviour
             StopTyping();
             textPanel.SetActive(false);
             imagePanel.SetActive(false);
-            instructionText.text = "Verification complete";
+            instructionText.text = "Task completed. Door unlocked";
             Debug.Log("Captcha task completed");
             onCompleted.Invoke();
             return;

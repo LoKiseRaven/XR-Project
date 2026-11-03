@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327b6f937e5973440967f3e1ed60aa26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instructionText: {fileID: 9001514004511453962}
   gridImage: {fileID: 6374785958900153814}
   progressBoxes:
   - {fileID: 5966638460593931643}
@@ -523,7 +524,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -45.6}
-  m_SizeDelta: {x: 480.8, y: 188.9}
+  m_SizeDelta: {x: 188.9, y: 188.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7729653604152611134
 CanvasRenderer:

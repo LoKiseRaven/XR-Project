@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 public class ColorScreen : MonoBehaviour
 {
     [Header("Display")]
+    [SerializeField] private TMP_Text instructionText;
     [SerializeField] private RawImage gridImage;
     [SerializeField] private Image[] progressBoxes;
     [SerializeField] private Color emptyBoxColor = new Color(0.3f, 0.3f, 0.3f);
@@ -60,6 +62,8 @@ public class ColorScreen : MonoBehaviour
         if (goodAnswers >= answersToWin)
         {
             isCompleted = true;
+            gridImage.gameObject.SetActive(false);
+            instructionText.text = "Task completed. Door unlocked";
             Debug.Log("Color task completed");
             onCompleted.Invoke();
             return;

@@ -14,19 +14,23 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c08abb6bac34b8944b1fe30787b7eba1, type: 2}
     - target: {fileID: 4663029161629396922, guid: c5ebeab9595127c4dbced2414a0d307a, type: 3}
       propertyPath: m_Name
-      value: Green Button
+      value: Button Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814307301340861151, guid: c5ebeab9595127c4dbced2414a0d307a, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8894103581656235968, guid: c5ebeab9595127c4dbced2414a0d307a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.514
       objectReference: {fileID: 0}
     - target: {fileID: 8894103581656235968, guid: c5ebeab9595127c4dbced2414a0d307a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.918
       objectReference: {fileID: 0}
     - target: {fileID: 8894103581656235968, guid: c5ebeab9595127c4dbced2414a0d307a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.582
       objectReference: {fileID: 0}
     - target: {fileID: 8894103581656235968, guid: c5ebeab9595127c4dbced2414a0d307a, type: 3}
       propertyPath: m_LocalRotation.w
