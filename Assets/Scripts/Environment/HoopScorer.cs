@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Detects a basket. 
-/// Two thin invisible trigger boxes, one ABOVE
-/// the rim and one BELOW. A hoop only counts if it enters the top zone first and the
-/// bottom zone shortly after
-/// </summary>
+// Detects a basket. 
+// Two thin invisible trigger boxes, one ABOVE
+// the rim and one BELOW. A hoop only counts if it enters the top zone first and the
+// bottom zone shortly after
+ 
+//access number of hoops scored HoopScorer.TotalHoopsScored
 public class HoopScorer : MonoBehaviour
 {
     [Header("Setup")]
@@ -26,11 +26,11 @@ public class HoopScorer : MonoBehaviour
 
     [Header("Audio Settings")]
     [Range(0f, 1f)][SerializeField] private float soundVolume = 0.75f;
-    [SerializeField] private float dingFrequency = 880f; // Fixed pitch
-
+    [SerializeField] private float dingFrequency = 880f; // Fixed sound pitch
+    public static int TotalHoopsScored { get; private set; }
     public int Score { get; private set; }
 
-    /// <summary>Fired when a ball scores</summary>
+    //Fired when a ball scores
     public event Action<Pickable> Scored;
 
     // Ball -> time it entered the top zone.
@@ -95,6 +95,7 @@ public class HoopScorer : MonoBehaviour
         {
             topEntryTime.Remove(ball);
             Score++;
+            TotalHoopsScored++;
             Debug.Log("Score = " + Score);
 
             PlayDingSound();

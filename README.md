@@ -68,12 +68,12 @@ Demo video: [TODO]
 
 ## Third-party assets
 
-- Casino (ithappy): slot machines and casino props
-- Low Poly Props: furniture, piano, chess set
-- Basketball
-- Rubbish Bins
-- Mess Maker Free: bottles, cans, rocks and food leftovers used as throwable objects
-- Electric Guitars: guitars, bass and amplifier of the music station
-- Horn for FREE: horn of the music station
-- Medieval Weaponry: spear and sword used as darts
-- Shooting Target: target of the darts
+- Casino (ithappy): slot machines and casino props: (found here)[https://assetstore.unity.com/packages/3d/environments/casino-free-low-poly-asset-pack-393074]
+- Low Poly Props: furniture, piano, chess set: (found here)[https://assetstore.unity.com/packages/3d/props/15-low-poly-models-202061]
+- Basketball: (found here)[https://assetstore.unity.com/packages/3d/props/basketball-realistic-313677]
+- Rubbish Bins: (found here)[https://assetstore.unity.com/packages/3d/props/waste-bin-73303]
+- Mess Maker Free: bottles, cans, rocks and food leftovers used as throwable objects: (found here)[https://assetstore.unity.com/packages/tools/modeling/mess-maker-free-213803]
+- Electric Guitars: guitars, bass and amplifier of the music station: (found here)[https://assetstore.unity.com/packages/3d/props/low-poly-guitars-pack-161857]
+- Horn for FREE: horn of the music station: (found here)[https://assetstore.unity.com/packages/3d/props/tools/horn-for-free-103209]
+- Medieval Weaponry: spear and sword used as darts: (found here)[https://assetstore.unity.com/packages/3d/props/3d-medieval-weaponry-308065]
+- Shooting Target: target of the darts: (found here)[https://assetstore.unity.com/packages/3d/props/shooting-target-319790]
