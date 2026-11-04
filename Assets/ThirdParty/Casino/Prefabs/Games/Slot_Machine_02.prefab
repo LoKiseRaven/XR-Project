@@ -356,7 +356,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   autoPlay: 1
   firstSpinDelayRange: {x: 0.5, y: 2.5}
-  delayBetweenSpinsRange: {x: 3, y: 7}
+  delayBetweenSpinsRange: {x: 15, y: 40}
   winChancePercent: 5
   loseAnimationChancePercent: 10
   presets:
