@@ -1,10 +1,14 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 // Put on any object the player can pick up, carry and throw
 // Needs a Rigidbody and at least one Collider.
 // Scale tip: keep every parent of a Pickable at scale (1,1,1), otherwise the physics
 // (and the size of the ball) behave strangely.
+
+//access totalPicks with  Pickable.TotalPickups
+//access number of individual items picked with Pickable.UniqueItemsPickedCount
 [RequireComponent(typeof(Rigidbody))]
 public class Pickable : MonoBehaviour
 {
@@ -39,6 +43,10 @@ public class Pickable : MonoBehaviour
     Transform holdPoint;
     Vector3 startPos;
     Quaternion startRot;
+
+    public static int TotalPickups { get; private set; }
+    public static int UniqueItemsPickedCount => UniquePickedItems.Count;
+    private static readonly HashSet<Pickable> UniquePickedItems = new HashSet<Pickable>();
 
     void Awake()
     {
@@ -100,6 +108,8 @@ public class Pickable : MonoBehaviour
         IsHeld = true;
         rb.isKinematic = false; // an embedded/frozen item is freed when picked up
         rb.useGravity = false;
+        TotalPickups++;
+        UniquePickedItems.Add(this);
         OnPickedUp?.Invoke(this);
     }
 

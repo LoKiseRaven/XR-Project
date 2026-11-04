@@ -11,6 +11,7 @@ public class HudTimer : MonoBehaviour
 
     // Static fields aren't reset when Play Mode starts if Domain Reload is turned off, so reset them here
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+
     static void ResetTimer()
     {
         ElapsedTime = 0f;
