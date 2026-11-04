@@ -70,3 +70,8 @@ Demo video: [TODO]
 - Low Poly Props: furniture, piano, chess set
 - Basketball
 - Rubbish Bins
+- Mess Maker Free: bottles, cans, rocks and food leftovers used as throwable objects
+- Electric Guitars: guitars, bass and amplifier of the music station
+- Horn for FREE: horn of the music station
+- Medieval Weaponry: spear and sword used as darts
+- Shooting Target: target of the darts
