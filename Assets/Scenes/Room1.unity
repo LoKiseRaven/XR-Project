@@ -217,7 +217,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!1 &48675275 stripped
@@ -246,7 +246,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!4 &68655428 stripped
@@ -377,7 +377,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!1001 &213814906
@@ -571,7 +571,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &219510675
@@ -923,7 +923,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!1 &299480473 stripped
@@ -952,7 +952,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &299480479
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &366426953
@@ -1582,7 +1582,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &496450462
@@ -2020,7 +2020,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &611452024
@@ -2086,7 +2086,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!1 &748080458 stripped
@@ -2115,7 +2115,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!1 &750901975 stripped
@@ -2144,7 +2144,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &750901981
@@ -2272,7 +2272,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!1001 &870526697
@@ -2432,7 +2432,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!1001 &979652489
@@ -2541,7 +2541,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &1039698376
@@ -2738,7 +2738,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!4 &1105566792 stripped
@@ -4121,7 +4121,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &1475088455
@@ -4172,7 +4172,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &1493483725
@@ -4228,7 +4228,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!1001 &1551111656
@@ -4555,7 +4555,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!1 &1642179998 stripped
@@ -4584,7 +4584,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!1 &1712471761
@@ -4651,7 +4651,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &1752896714
@@ -4954,7 +4954,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &1817636503
@@ -5005,7 +5005,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &1821484742
@@ -5096,7 +5096,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &1879633859
@@ -5152,7 +5152,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &1894304820
@@ -5352,7 +5352,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &1980854833
@@ -5586,7 +5586,7 @@ MonoBehaviour:
   followStrength: 15
   maxHoldDistance: 1.5
   overrideMaterial: 1
-  bounciness: 0.75
+  bounciness: 0.15
   friction: 0.5
   killY: -5
 --- !u!54 &2125280168
