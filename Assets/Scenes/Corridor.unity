@@ -329,34 +329,8 @@ PrefabInstance:
     - {fileID: 65702495048144492, guid: c3d22bad2640e3b4296f9481bc3696e2, type: 3}
     - {fileID: -8700617353114198275, guid: c3d22bad2640e3b4296f9481bc3696e2, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c3d22bad2640e3b4296f9481bc3696e2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 482371565}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3d22bad2640e3b4296f9481bc3696e2, type: 3}
---- !u!1 &482371564 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c3d22bad2640e3b4296f9481bc3696e2, type: 3}
-  m_PrefabInstance: {fileID: 482371563}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &482371565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482371564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8418c7002d6f86b47bf0363f3a056f32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorId: Door_
-  recordAsLastRoomDoor: 0
-  targetScene: Corridor
-  mode: 1
-  targetSpawnId: Door1
-  activateOnTouch: 1
 --- !u!4 &482371566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c3d22bad2640e3b4296f9481bc3696e2, type: 3}
