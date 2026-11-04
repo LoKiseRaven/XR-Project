@@ -8,7 +8,7 @@ public enum InteractionType
 {
     Test,
     Button,
-    Screen
+    Other
 }
 
 public class Interactable : MonoBehaviour
@@ -45,7 +45,7 @@ public class Interactable : MonoBehaviour
                 ButtonAction();
                 break;
 
-            case InteractionType.Screen:
+            case InteractionType.Other:
                 onPressed.Invoke();
                 break;
         }

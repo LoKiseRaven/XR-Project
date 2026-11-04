@@ -44,8 +44,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -53,23 +65,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.4999998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -77,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -124,6 +136,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
       insertIndex: -1
       addedObject: {fileID: -2298656533845379874}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6110935727640210002}
   m_SourcePrefab: {fileID: 100100000, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
 --- !u!1 &3856711613769192088 stripped
 GameObject:
@@ -410,7 +425,7 @@ MonoBehaviour:
   - {fileID: 8909757882845752988}
   - {fileID: 3502323970943412730}
   winAudioSource: {fileID: -6572895349515629797}
-  spinAudioSource: {fileID: 0}
+  spinAudioSource: {fileID: -6572895349515629797}
   reelStopAudioSource: {fileID: 0}
   previewRow: 1
   previewPresetIndex: 0
@@ -436,6 +451,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7523479488643012325, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
+--- !u!114 &6110935727640210002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856711613769192088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc56634a5526544c94fdd72b12139c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  pressDepth: 0.0045
+  pressSpeed: 10
+  pressTime: 0.15
+  onPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4038408291885667449}
+        m_TargetAssemblyTypeName: ithappy.Casino.PresetUVSlotMachine, Assembly-CSharp
+        m_MethodName: SpinRandom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &4525583726467762210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f91f56a3238d4a9c89444a9a0f71ab3a, type: 3}
