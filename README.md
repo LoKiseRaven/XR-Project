@@ -4,7 +4,9 @@ Final project for *Fundamentals of eXtended Reality* (Master HCI, Université Pa
 
 The participant moves through a series of rooms. Each room has a **boring main task** that has to be completed to unlock the door to the next room, and the room is full of **fun distractions** (a playable piano, slot machines...). The idea is to observe how a participant handles an annoying, repetitive task when more entertaining things are within reach.
 
-Demo video: [TODO]
+Demo video: [Demo video.mp4](Demo%20video.mp4)
+
+Project size : 1.34GB (without the video)
 
 ## Group members and contributions
 
