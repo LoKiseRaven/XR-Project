@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -25,6 +26,13 @@ public class ColorScreen : MonoBehaviour
     [SerializeField] private int answersToWin = 5;
     public UnityEvent onCompleted;
 
+    [Header("Feedback")]
+    [SerializeField] private Light feedbackLight;
+    [SerializeField] private Color goodAnswerColor = Color.green;
+    [SerializeField] private Color badAnswerColor = Color.red;
+    [SerializeField] private float flashDuration = 0.3f;
+
+    private Coroutine flashRoutine;
     private Texture2D gridTexture;
     private int dominantColor;
     private int goodAnswers;
@@ -37,6 +45,11 @@ public class ColorScreen : MonoBehaviour
         gridTexture.wrapMode = TextureWrapMode.Clamp;
         gridImage.texture = gridTexture;
 
+        if (feedbackLight != null)
+        {
+            feedbackLight.enabled = false;
+        }
+
         UpdateProgress();
         GenerateGrid();
     }
@@ -48,7 +61,8 @@ public class ColorScreen : MonoBehaviour
             return;
         }
 
-        if (colorIndex == dominantColor)
+        bool isCorrect = colorIndex == dominantColor;
+        if (isCorrect)
         {
             goodAnswers++;
         }
@@ -57,6 +71,7 @@ public class ColorScreen : MonoBehaviour
             goodAnswers = 0;
         }
 
+        FlashLight(isCorrect);
         UpdateProgress();
 
         if (goodAnswers >= answersToWin)
@@ -111,6 +126,30 @@ public class ColorScreen : MonoBehaviour
         gridTexture.Apply();
 
         Debug.Log($"New grid: {dominantCount} / {secondCount} / {thirdCount}, answer = {dominantColor}");
+    }
+
+    void FlashLight(bool isCorrect)
+    {
+        if (feedbackLight == null)
+        {
+            return;
+        }
+
+        // Restart the flash if the player answers again before the previous one ended
+        if (flashRoutine != null)
+        {
+            StopCoroutine(flashRoutine);
+        }
+        flashRoutine = StartCoroutine(FlashRoutine(isCorrect ? goodAnswerColor : badAnswerColor));
+    }
+
+    IEnumerator FlashRoutine(Color color)
+    {
+        feedbackLight.color = color;
+        feedbackLight.enabled = true;
+        yield return new WaitForSeconds(flashDuration);
+        feedbackLight.enabled = false;
+        flashRoutine = null;
     }
 
     void UpdateProgress()

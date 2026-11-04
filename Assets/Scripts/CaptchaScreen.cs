@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
@@ -41,6 +42,13 @@ public class CaptchaScreen : MonoBehaviour
     [SerializeField] private int maxInputLength = 12;
     public UnityEvent onCompleted;
 
+    [Header("Feedback")]
+    [SerializeField] private Light feedbackLight;
+    [SerializeField] private Color goodAnswerColor = Color.green;
+    [SerializeField] private Color badAnswerColor = Color.red;
+    [SerializeField] private float flashDuration = 0.3f;
+
+    private Coroutine flashRoutine;
     private PlayerController player;
     private PlayerInteraction playerInteraction;
 
@@ -59,6 +67,11 @@ public class CaptchaScreen : MonoBehaviour
     {
         player = FindObjectOfType<PlayerController>();
         playerInteraction = FindObjectOfType<PlayerInteraction>();
+
+        if (feedbackLight != null)
+        {
+            feedbackLight.enabled = false;
+        }
 
         UpdateProgress();
         GenerateCaptcha();
@@ -138,7 +151,8 @@ public class CaptchaScreen : MonoBehaviour
 
     void SubmitAnswer()
     {
-        if (IsAnswerCorrect())
+        bool isCorrect = IsAnswerCorrect();
+        if (isCorrect)
         {
             goodAnswers++;
         }
@@ -147,6 +161,7 @@ public class CaptchaScreen : MonoBehaviour
             goodAnswers = 0;
         }
 
+        FlashLight(isCorrect);
         currentInput = "";
         UpdateProgress();
 
@@ -278,6 +293,30 @@ public class CaptchaScreen : MonoBehaviour
         {
             inputText.text = "Click to type";
         }
+    }
+
+    void FlashLight(bool isCorrect)
+    {
+        if (feedbackLight == null)
+        {
+            return;
+        }
+
+        // Restart the flash if the player answers again before the previous one ended
+        if (flashRoutine != null)
+        {
+            StopCoroutine(flashRoutine);
+        }
+        flashRoutine = StartCoroutine(FlashRoutine(isCorrect ? goodAnswerColor : badAnswerColor));
+    }
+
+    IEnumerator FlashRoutine(Color color)
+    {
+        feedbackLight.color = color;
+        feedbackLight.enabled = true;
+        yield return new WaitForSeconds(flashDuration);
+        feedbackLight.enabled = false;
+        flashRoutine = null;
     }
 
     void UpdateProgress()
