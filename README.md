@@ -38,7 +38,7 @@ Demo video: [TODO]
 |---|---|
 | Manipulation with ray casting at an offset distance or a virtual hand for close-up manipulation | - `PlayerInteraction` casts a ray from the camera (3 m reach), aimed with the crosshair<br> - Left click on what the ray hits: buttons, screens, doors, piano keys, slot machines<br> - Throwable objects are picked up through the ray, then float at a hold point in front of the camera and can be dropped (E) or thrown (hold and release left click) |
 | Activation / Deactivation of objects during runtime | - The door blocker is disabled when the room's task is completed<br> - The feedback light of each monitor is switched on and off after each answer<br> - The captcha screen switches between its panels (text captcha, image captcha) |
-| Canvas + 3D TextMeshPro | - World space canvas on the monitors, with TextMeshPro for the instructions, the captcha characters, the typed answer and the completion message<br> - Screen space canvas for the HUD (crosshair and timer)<br> - ([TODO] : instructions at start room?) |
+| Canvas + 3D TextMeshPro | - World space canvas on the monitors, with TextMeshPro for the instructions, the captcha characters, the typed answer and the completion message<br> - Screen space canvas for the HUD (crosshair and timer)<br> - 3D TextMeshPro for the floating instructions in the start room: goal of the game, controls |
 | Physics | - Throwable objects have a Rigidbody with gravity, continuous collision detection, a bounciness and a friction<br> - While held, the object follows the player camera's movements and is dropped if it gets stuck behind a wall<br> - The throw gives the object a velocity (depending on the charge)<br> - Darts stick on collision<br> - The hoop detects basketballs
 | Lighting controlled during the interaction | - Each monitor has a feedback light that turns on for 0.3 s after each answer: green for a good answer, red for a wrong one |
 | 3D audio integrated in the scene | - The piano notes are played by a spatialised AudioSource on the piano<br> - The slot machines play a sound when they win with an AudioSource placed directly in the machines |
@@ -60,7 +60,9 @@ Demo video: [TODO]
 |---|---|
 | WASD / ZQSD /  arrows | Walk |
 | Mouse | Look around |
-| Left click | Interact with what the crosshair points at |
+| Left click | Interact with what the crosshair points at / pick up an object |
+| E | Pick up / drop an object |
+| Hold and release left click (holding an object) | Throw it, the longer the hold the stronger the throw |
 | Keyboard, Enter | Type and validate a captcha |
 | Esc | Leave the captcha screen / free the cursor |
 
