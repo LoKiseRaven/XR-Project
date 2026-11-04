@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7122666863795742170}
   - component: {fileID: 877924662738900981}
   - component: {fileID: 2557948418060459380}
+  - component: {fileID: 7400000000000000001}
   m_Layer: 0
   m_Name: Apple Core Green
   m_TagString: Untagged
@@ -112,3 +113,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.10634285, y: 0.11389827, z: 0.27148348}
   m_Center: {x: 0.0015191939, y: -0.0037208386, z: 0.019082293}
+--- !u!114 &7400000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124406358728296116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd412ac546dc4745b206f0d8bb1d0b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

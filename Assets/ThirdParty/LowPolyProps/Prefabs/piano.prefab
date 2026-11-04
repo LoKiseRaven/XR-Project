@@ -2401,6 +2401,7 @@ GameObject:
   - component: {fileID: 65085147120524382}
   - component: {fileID: 4783086268077998100}
   - component: {fileID: 4783086268077998101}
+  - component: {fileID: 4783086268077998102}
   m_Layer: 0
   m_Name: piano
   m_TagString: Untagged
@@ -4200,3 +4201,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4783086268077998102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4783086268077998020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd412ac546dc4745b206f0d8bb1d0b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

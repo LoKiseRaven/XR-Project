@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 770626215737405152}
   - component: {fileID: 770626215737405155}
   - component: {fileID: -5715518884418423821}
+  - component: {fileID: 7400000000000000001}
   m_Layer: 0
   m_Name: Rock 3 Low
   m_TagString: Untagged
@@ -112,3 +113,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9468303, y: 0.46960336, z: 0.7337141}
   m_Center: {x: 0.00017695129, y: 0.021453016, z: -0.0018936545}
+--- !u!114 &7400000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770626215737405154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd412ac546dc4745b206f0d8bb1d0b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

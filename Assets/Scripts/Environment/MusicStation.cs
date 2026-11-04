@@ -46,6 +46,13 @@ public class InteractiveAudioObject : MonoBehaviour
     // Call this method from custom interaction scripts
     public void Interact()
     {
+        // Record the use in StationTracker through the MusicStation parent
+        StationInteractable station = GetComponentInParent<StationInteractable>();
+        if (station != null)
+        {
+            station.OnPlayerInteracted();
+        }
+
         if (instrumentType == InstrumentType.AmpStatic)
         {
             isToggledOn = !isToggledOn;

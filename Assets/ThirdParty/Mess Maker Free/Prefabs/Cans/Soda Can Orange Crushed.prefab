@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 6337013113694933891}
   - component: {fileID: 6645930612256855362}
   - component: {fileID: 5352752513575406722}
+  - component: {fileID: 7400000000000000001}
   m_Layer: 0
   m_Name: Soda Can Orange Crushed
   m_TagString: Untagged
@@ -194,3 +195,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.18573658, y: 0.24873498, z: 0.2506091}
   m_Center: {x: 0, y: 0.049830053, z: -0.07703738}
+--- !u!114 &7400000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8276625273990236846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd412ac546dc4745b206f0d8bb1d0b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
