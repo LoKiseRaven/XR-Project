@@ -6,7 +6,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-
 [System.Serializable]
 public class CaptchaCategory
 {
@@ -28,20 +27,24 @@ public class CaptchaScreen : MonoBehaviour
     [SerializeField] private TMP_Text captchaText;
     [SerializeField] private int textLength = 6;
     [SerializeField] private float maxRotation = 25f;
+    // No I, L, O, 0 or 1, which are easy to mix up
     private const string Characters = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
 
     [Header("Image captcha")]
     [SerializeField] private GameObject imagePanel;
     [SerializeField] private Image[] gridCells;
     [SerializeField] private CaptchaCategory[] categories;
+    // How many cells of the grid show the object to find
     [SerializeField] private int minTargets = 2;
     [SerializeField] private int maxTargets = 4;
 
     [Header("Task")]
+    // Good answers in a row needed to complete the task
     [SerializeField] private int answersToWin = 5;
     [SerializeField] private int maxInputLength = 12;
     public UnityEvent onCompleted;
 
+    // Light flashed green or red after each answer
     [Header("Feedback")]
     [SerializeField] private Light feedbackLight;
     [SerializeField] private Color goodAnswerColor = Color.green;
@@ -49,6 +52,8 @@ public class CaptchaScreen : MonoBehaviour
     [SerializeField] private float flashDuration = 0.3f;
 
     private Coroutine flashRoutine;
+
+    // Disabled while typing, so the keys only go to the captcha
     private PlayerController player;
     private PlayerInteraction playerInteraction;
 
@@ -58,8 +63,10 @@ public class CaptchaScreen : MonoBehaviour
 
     private bool isImageCaptcha;
     private string textAnswer;
+    // Indexes (0 to 8) of the cells showing the object to find
     private HashSet<int> imageAnswer = new HashSet<int>();
 
+    // Good answers in a row, back to 0 after a wrong answer
     private int goodAnswers;
     private bool isCompleted;
 
@@ -78,6 +85,7 @@ public class CaptchaScreen : MonoBehaviour
         UpdateInputText();
     }
 
+    // Called by the monitor's Interactable when the player clicks it
     public void StartTyping()
     {
         if (isCompleted || isTyping)
@@ -103,6 +111,7 @@ public class CaptchaScreen : MonoBehaviour
         player.enabled = enabled;
         playerInteraction.enabled = enabled;
 
+        // Locking the cursor when giving control back to the player
         if (enabled)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -121,6 +130,7 @@ public class CaptchaScreen : MonoBehaviour
 
     void Update()
     {
+        // Typing starts on the next frame, so nothing typed on the click's frame ends up in the answer
         if (!isTyping || Time.frameCount == typingStartFrame)
         {
             return;
@@ -128,20 +138,21 @@ public class CaptchaScreen : MonoBehaviour
 
         foreach (char c in Input.inputString)
         {
-            if (c == '\b')
+            if (c == '\b') // Backspace
             {
                 if (currentInput.Length > 0)
                 {
                     currentInput = currentInput.Substring(0, currentInput.Length - 1);
                 }
             }
-            else if (c == '\n' || c == '\r')
+            else if (c == '\n' || c == '\r') // Enter
             {
                 SubmitAnswer();
                 return;
             }
             else if (char.IsLetterOrDigit(c) && currentInput.Length < maxInputLength)
             {
+                // Upper casing the letters because we dont want the captcha to be case sensitive
                 currentInput += char.ToUpperInvariant(c);
             }
         }
@@ -165,6 +176,7 @@ public class CaptchaScreen : MonoBehaviour
         currentInput = "";
         UpdateProgress();
 
+        // Task completed: hide the captcha, show the message and unlock the door
         if (goodAnswers >= answersToWin)
         {
             isCompleted = true;
@@ -188,10 +200,11 @@ public class CaptchaScreen : MonoBehaviour
             return currentInput == textAnswer;
         }
 
-        // Order doesn't matter: "258" and "852" are both fine
+        // Order doesn't matter: "258" and "852" are both working
         HashSet<int> typedCells = new HashSet<int>();
         foreach (char c in currentInput)
         {
+            // The player types 1 to 9, the cells are stored from 0 to 8
             if (c >= '1' && c <= '9')
             {
                 typedCells.Add(c - '1');
@@ -229,7 +242,7 @@ public class CaptchaScreen : MonoBehaviour
             char c = Characters[Random.Range(0, Characters.Length)];
             answer.Append(c);
 
-            // Each character gets its own rotation, height and size
+            // Each character gets its own rotation, height and size, through TextMeshPro rich text tags
             string rotation = Random.Range(-maxRotation, maxRotation).ToString("0", CultureInfo.InvariantCulture);
             string offset = Random.Range(-0.2f, 0.2f).ToString("0.00", CultureInfo.InvariantCulture);
             int size = Random.Range(80, 125);
@@ -246,6 +259,7 @@ public class CaptchaScreen : MonoBehaviour
         int target = Random.Range(0, categories.Length);
         instructionText.text = $"Type the numbers of every image with a {categories[target].name}.";
 
+        // Pick which cells show the target. A HashSet ignores duplicates, so loop until there are enough
         imageAnswer.Clear();
         int targetCount = Random.Range(minTargets, maxTargets + 1);
         while (imageAnswer.Count < targetCount)
@@ -268,6 +282,7 @@ public class CaptchaScreen : MonoBehaviour
         Debug.Log("New image captcha, answer = " + string.Join("", SortedAnswer()));
     }
 
+    // To get the anwser in the Debug Log
     List<int> SortedAnswer()
     {
         List<int> cells = new List<int>();
@@ -302,7 +317,6 @@ public class CaptchaScreen : MonoBehaviour
             return;
         }
 
-        // Restart the flash if the player answers again before the previous one ended
         if (flashRoutine != null)
         {
             StopCoroutine(flashRoutine);
@@ -319,6 +333,7 @@ public class CaptchaScreen : MonoBehaviour
         flashRoutine = null;
     }
 
+    // Fill one box per good answer in a row
     void UpdateProgress()
     {
         for (int i = 0; i < progressBoxes.Length; i++)

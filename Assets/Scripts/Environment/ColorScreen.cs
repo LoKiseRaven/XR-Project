@@ -8,13 +8,14 @@ public class ColorScreen : MonoBehaviour
 {
     [Header("Display")]
     [SerializeField] private TMP_Text instructionText;
+    // Shows the grid texture, one pixel per cell
     [SerializeField] private RawImage gridImage;
     [SerializeField] private Image[] progressBoxes;
     [SerializeField] private Color emptyBoxColor = new Color(0.3f, 0.3f, 0.3f);
     [SerializeField] private Color filledBoxColor = Color.white;
 
     [Header("Grid")]
-    // 0, 1, 2 (red, green, blue)
+    // 0, 1, 2 (red, green, blue), the same indexes the buttons send to SubmitAnswer
     [SerializeField] private Color[] colors = { Color.red, Color.green, Color.blue };
     [SerializeField] private int gridWidth = 10;
     [SerializeField] private int gridHeight = 10;
@@ -26,6 +27,7 @@ public class ColorScreen : MonoBehaviour
     [SerializeField] private int answersToWin = 5;
     public UnityEvent onCompleted;
 
+    // Light flashed green or red after each answer
     [Header("Feedback")]
     [SerializeField] private Light feedbackLight;
     [SerializeField] private Color goodAnswerColor = Color.green;
@@ -34,12 +36,14 @@ public class ColorScreen : MonoBehaviour
 
     private Coroutine flashRoutine;
     private Texture2D gridTexture;
+    // Index of the colour that appears the most
     private int dominantColor;
     private int goodAnswers;
     private bool isCompleted;
 
     void Start()
     {
+        // A tiny texture with one pixel per cell. Point filtering keeps the cells sharp once stretched on the screen
         gridTexture = new Texture2D(gridWidth, gridHeight);
         gridTexture.filterMode = FilterMode.Point;
         gridTexture.wrapMode = TextureWrapMode.Clamp;
@@ -54,6 +58,7 @@ public class ColorScreen : MonoBehaviour
         GenerateGrid();
     }
 
+    // Called by the coloured buttons (Interactable onPressed), with the index of their colour (0, 1, 2 for red, green, blue)
     public void SubmitAnswer(int colorIndex)
     {
         if (isCompleted)
@@ -74,6 +79,7 @@ public class ColorScreen : MonoBehaviour
         FlashLight(isCorrect);
         UpdateProgress();
 
+        // Task completed: hide the grid, show the message and unlock the door
         if (goodAnswers >= answersToWin)
         {
             isCompleted = true;
@@ -91,17 +97,17 @@ public class ColorScreen : MonoBehaviour
     {
         int cellCount = gridWidth * gridHeight;
 
-        // Dominant colour gets slightly more than a third, the two others share the rest
         int dominantCount = Mathf.CeilToInt(cellCount / 3f) + Random.Range(minMargin, maxMargin + 1);
         int remaining = cellCount - dominantCount;
-        // Both other counts stay strictly below the dominant one
         int secondCount = Random.Range(Mathf.Max(0, remaining - (dominantCount - 1)), dominantCount);
         int thirdCount = remaining - secondCount;
 
+        // Random dominant colour, the two others are the next ones in the array
         dominantColor = Random.Range(0, colors.Length);
         int secondColor = (dominantColor + 1) % colors.Length;
         int thirdColor = (dominantColor + 2) % colors.Length;
 
+        // Fill the cells in order (dominant, then second, then third colour)
         int[] cells = new int[cellCount];
         for (int i = 0; i < cellCount; i++)
         {
@@ -135,7 +141,6 @@ public class ColorScreen : MonoBehaviour
             return;
         }
 
-        // Restart the flash if the player answers again before the previous one ended
         if (flashRoutine != null)
         {
             StopCoroutine(flashRoutine);
@@ -152,6 +157,7 @@ public class ColorScreen : MonoBehaviour
         flashRoutine = null;
     }
 
+    // Fill one box per good answer in a row
     void UpdateProgress()
     {
         for (int i = 0; i < progressBoxes.Length; i++)

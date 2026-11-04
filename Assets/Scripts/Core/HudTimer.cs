@@ -1,12 +1,6 @@
 using TMPro;
 using UnityEngine;
 
-/*
-    Chrono shown on the HUD. Put it on a TMP text of the HUD prefab.
-    The time is kept in a static field, which survives scene changes (like SceneTransition),
-    so each scene's HUD carries on from where the previous one stopped.
-*/
-
 public class HudTimer : MonoBehaviour
 {
     [SerializeField] private TMP_Text timerText;
