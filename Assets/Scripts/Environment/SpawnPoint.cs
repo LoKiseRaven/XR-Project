@@ -1,16 +1,11 @@
 using UnityEngine;
 
-/// <summary>
-/// Marks a place where the player can appear. Put one in front of each door
-/// (outside the door's trigger, if it has one), with the blue arrow (forward)
-/// pointing the way the player should face.
-/// </summary>
 public class SpawnPoint : MonoBehaviour
 {
-    [Tooltip("Unique name within the scene, e.g. Door1, Door2, CorridorStart")]
+    [Tooltip("Unique name within a scene")]
     public string id = "Door1";
 
-    // Draws a marker in the Scene view so spawn points are easy to see and aim.
+    // Draws a marker in the scene view so spawn points are easy to see
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
